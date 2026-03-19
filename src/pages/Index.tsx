@@ -1,10 +1,17 @@
 import { Shader, ChromaFlow, Swirl } from "shaders/react"
 import { CustomCursor } from "@/components/custom-cursor"
 import { GrainOverlay } from "@/components/grain-overlay"
-import { WorkSection } from "@/components/sections/work-section"
-import { ServicesSection } from "@/components/sections/services-section"
-import { AboutSection } from "@/components/sections/about-section"
 import { ContactSection } from "@/components/sections/contact-section"
+import { GoalsSection } from "@/components/sections/goals-section"
+import { AudienceSection } from "@/components/sections/audience-section"
+import { NatureSection } from "@/components/sections/nature-section"
+import { HeritageSection } from "@/components/sections/heritage-section"
+import { InfrastructureSection } from "@/components/sections/infrastructure-section"
+import { NewTourismSection } from "@/components/sections/new-tourism-section"
+import { MarketingSection } from "@/components/sections/marketing-section"
+import { SupportSection } from "@/components/sections/support-section"
+import { ResultsSection } from "@/components/sections/results-section"
+import { ConclusionSection } from "@/components/sections/conclusion-section"
 import { MagneticButton } from "@/components/magnetic-button"
 import { useRef, useEffect, useState } from "react"
 
@@ -77,7 +84,7 @@ export default function Index() {
       const deltaX = touchStartX.current - touchEndX
 
       if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 50) {
-        if (deltaY > 0 && currentSection < 4) {
+        if (deltaY > 0 && currentSection < 11) {
           scrollToSection(currentSection + 1)
         } else if (deltaY < 0 && currentSection > 0) {
           scrollToSection(currentSection - 1)
@@ -147,7 +154,7 @@ export default function Index() {
         const scrollLeft = scrollContainerRef.current.scrollLeft
         const newSection = Math.round(scrollLeft / sectionWidth)
 
-        if (newSection !== currentSection && newSection >= 0 && newSection <= 4) {
+        if (newSection !== currentSection && newSection >= 0 && newSection <= 11) {
           setCurrentSection(newSection)
         }
 
@@ -226,7 +233,7 @@ export default function Index() {
         </button>
 
         <div className="hidden items-center gap-8 md:flex">
-          {["Главная", "Регионы", "Направления", "О стратегии", "Контакты"].map((item, index) => (
+          {["Главная", "Цели", "Аудитория", "Природа", "Культура", "Инфраструктура", "Форматы", "Маркетинг", "Поддержка", "Результаты", "Заключение", "Контакты"].map((item, index) => (
             <button
               key={item}
               onClick={() => scrollToSection(index)}
@@ -297,9 +304,16 @@ export default function Index() {
           </div>
         </section>
 
-        <WorkSection />
-        <ServicesSection />
-        <AboutSection scrollToSection={scrollToSection} />
+        <GoalsSection />
+        <AudienceSection />
+        <NatureSection />
+        <HeritageSection />
+        <InfrastructureSection />
+        <NewTourismSection />
+        <MarketingSection />
+        <SupportSection />
+        <ResultsSection scrollToSection={scrollToSection} />
+        <ConclusionSection scrollToSection={scrollToSection} />
         <ContactSection />
       </div>
 
