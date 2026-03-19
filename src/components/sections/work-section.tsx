@@ -9,18 +9,20 @@ export function WorkSection() {
       className="flex h-screen w-screen shrink-0 snap-start items-center px-6 pt-20 md:px-12 md:pt-0 lg:px-16"
     >
       <div className="mx-auto w-full max-w-7xl">
-        <div
-          className={`mb-12 transition-all duration-700 md:mb-16 ${
-            isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
-          }`}
-        >
-          <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Регионы
-          </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Ключевые туристические направления</p>
-        </div>
+        <div className="grid gap-8 md:grid-cols-[1fr_280px] md:gap-12 lg:gap-20">
+          <div>
+            <div
+              className={`mb-10 transition-all duration-700 ${
+                isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
+              }`}
+            >
+              <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
+                Регионы
+              </h2>
+              <p className="font-mono text-sm text-foreground/60 md:text-base">/ Ключевые туристические направления</p>
+            </div>
 
-        <div className="space-y-6 md:space-y-8">
+            <div className="space-y-4 md:space-y-6">
           {[
             {
               number: "01",
@@ -53,6 +55,21 @@ export function WorkSection() {
           ].map((project, i) => (
             <ProjectCard key={i} project={project} index={i} isVisible={isVisible} />
           ))}
+            </div>
+          </div>
+
+          <div
+            className={`hidden overflow-hidden rounded-2xl md:block transition-all duration-700 ${
+              isVisible ? "translate-x-0 opacity-100" : "translate-x-16 opacity-0"
+            }`}
+            style={{ transitionDelay: "400ms" }}
+          >
+            <img
+              src="https://cdn.poehali.dev/projects/08cb0b83-56e7-493e-86dd-a486209c7368/files/a1b64e83-9d31-4720-be1b-f1e89ab3a45b.jpg"
+              alt="Санкт-Петербург белые ночи"
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>

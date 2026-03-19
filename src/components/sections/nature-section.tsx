@@ -39,23 +39,38 @@ export function NatureSection() {
           <p className="font-mono text-sm text-foreground/60 md:text-base">/ Природные ресурсы России</p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 md:gap-x-16 md:gap-y-12 lg:gap-x-24">
-          {resources.map((item, i) => (
-            <div
-              key={i}
-              className={`group transition-all duration-700 ${getRevealClass(item.direction, isVisible)}`}
-              style={{ transitionDelay: `${i * 150}ms` }}
-            >
-              <div className="mb-4 flex items-center gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-foreground/10 transition-all duration-300 group-hover:bg-foreground/20">
-                  <Icon name={item.icon} size={20} className="text-foreground/80" fallback="Leaf" />
+        <div className="grid gap-8 md:grid-cols-[1fr_320px] md:gap-12 lg:gap-20">
+          <div className="grid grid-cols-2 gap-6 md:gap-8">
+            {resources.map((item, i) => (
+              <div
+                key={i}
+                className={`group transition-all duration-700 ${getRevealClass(item.direction, isVisible)}`}
+                style={{ transitionDelay: `${i * 150}ms` }}
+              >
+                <div className="mb-4 flex items-center gap-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-foreground/10 transition-all duration-300 group-hover:bg-foreground/20">
+                    <Icon name={item.icon} size={20} className="text-foreground/80" fallback="Leaf" />
+                  </div>
+                  <div className="h-px flex-1 bg-foreground/15 transition-all duration-300 group-hover:bg-foreground/30" />
                 </div>
-                <div className="h-px flex-1 bg-foreground/15 transition-all duration-300 group-hover:bg-foreground/30" />
+                <h3 className="mb-2 font-sans text-lg font-light text-foreground md:text-xl">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-foreground/75">{item.description}</p>
               </div>
-              <h3 className="mb-2 font-sans text-xl font-light text-foreground md:text-2xl">{item.title}</h3>
-              <p className="max-w-sm text-sm leading-relaxed text-foreground/75 md:text-base">{item.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div
+            className={`hidden overflow-hidden rounded-2xl md:block transition-all duration-700 ${
+              isVisible ? "translate-x-0 opacity-100" : "translate-x-16 opacity-0"
+            }`}
+            style={{ transitionDelay: "500ms" }}
+          >
+            <img
+              src="https://cdn.poehali.dev/projects/08cb0b83-56e7-493e-86dd-a486209c7368/files/cd040646-e511-4b6f-aea9-0cc83fbfd60b.jpg"
+              alt="Кавказские горы России"
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>

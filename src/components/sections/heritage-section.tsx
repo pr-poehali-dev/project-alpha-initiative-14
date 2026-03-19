@@ -17,14 +17,14 @@ export function HeritageSection() {
       className="flex h-screen w-screen shrink-0 snap-start items-center px-6 pt-20 md:px-12 md:pt-0 lg:px-16"
     >
       <div className="mx-auto w-full max-w-7xl">
-        <div className="grid gap-8 md:grid-cols-2 md:gap-16 lg:gap-24">
-          <div>
+        <div className="grid gap-8 md:grid-cols-[320px_1fr] md:gap-12 lg:gap-20">
+          <div className="flex flex-col justify-between">
             <div
               className={`mb-8 transition-all duration-700 ${
                 isVisible ? "translate-y-0 opacity-100" : "-translate-y-12 opacity-0"
               }`}
             >
-              <h2 className="mb-2 font-sans text-4xl font-light leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl">
+              <h2 className="mb-2 font-sans text-3xl font-light leading-[1.1] tracking-tight text-foreground md:text-5xl lg:text-6xl">
                 История и культура —
                 <br />
                 <span className="text-foreground/40">магнит для туристов</span>
@@ -38,10 +38,22 @@ export function HeritageSection() {
               }`}
               style={{ transitionDelay: "200ms" }}
             >
-              <p className="max-w-md text-sm leading-relaxed text-foreground/80 md:text-lg">
-                Россия входит в топ стран мира по числу объектов всемирного наследия ЮНЕСКО. Более 150 000 памятников культуры ждут своих гостей.
+              <div
+                className={`mb-5 overflow-hidden rounded-xl transition-all duration-700 ${
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                }`}
+                style={{ transitionDelay: "150ms" }}
+              >
+                <img
+                  src="https://cdn.poehali.dev/projects/08cb0b83-56e7-493e-86dd-a486209c7368/files/682f8acc-549e-4bdf-9d95-be8cd47e0466.jpg"
+                  alt="Московский Кремль"
+                  className="h-44 w-full object-cover"
+                />
+              </div>
+              <p className="text-sm leading-relaxed text-foreground/80 md:text-base">
+                Россия — в топе стран по числу объектов ЮНЕСКО. Более 150 000 памятников культуры ждут своих гостей.
               </p>
-              <div className="mt-6 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {["Взрослые", "Пожилые", "Школьники"].map((tag) => (
                   <span key={tag} className="rounded-full border border-foreground/20 bg-foreground/10 px-3 py-1 font-mono text-xs text-foreground/70">
                     {tag}
